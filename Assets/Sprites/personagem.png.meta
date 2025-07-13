@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 62a6a9638bed5a24aabeebe9c1e8a582
+guid: 8437498215f944a4593f5d8978582644
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6424074112319187702
-    second: olho_0
+      213: 2338503842691769198
+    second: personagem_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: olho_0
+      name: personagem_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1105
-        height: 2086
+        x: 1047
+        y: 624
+        width: 1185
+        height: 1254
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a059e6c81aa19d6a0800000000000000
-      internalID: -6424074112319187702
+      spriteID: e636781ead8047020800000000000000
+      internalID: 2338503842691769198
       vertices: []
       indices: 
       edges: []
@@ -173,8 +173,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      olho_0: -6424074112319187702
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
