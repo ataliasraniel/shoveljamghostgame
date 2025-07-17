@@ -20,7 +20,15 @@ public class PlayerShooter : MonoBehaviour
   [SerializeField] private float laserMaxDistance = 20f;
   [SerializeField] private LayerMask laserCollisionMask;
 
+  [Header("Braço Visual")]
+  [SerializeField] private Transform armBase;
+  [SerializeField] private LineRenderer armLine;
+
+
+
   [SerializeField] private Light2D shootLight;
+  [SerializeField] private Transform gunTransform;
+
 
   private int currentAmmo;
   private float nextFireTime = 0f;
@@ -48,6 +56,9 @@ public class PlayerShooter : MonoBehaviour
 
     AimAtMouse();
     UpdateLaser();
+    UpdateVisualArm();
+    HandleFlipByMouse();
+
 
     if (Input.GetMouseButton(0) && Time.time >= nextFireTime && currentAmmo > 0)
     {
@@ -61,6 +72,15 @@ public class PlayerShooter : MonoBehaviour
     }
   }
 
+  private void UpdateVisualArm()
+  {
+    if (armLine == null || armBase == null || gunTransform == null)
+      return;
+
+    armLine.SetPosition(0, armBase.position);     // ombro
+    armLine.SetPosition(1, gunTransform.position);  // mão/arma
+  }
+
   private void AimAtMouse()
   {
     Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
@@ -71,6 +91,13 @@ public class PlayerShooter : MonoBehaviour
 
     float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
     firePoint.rotation = Quaternion.Euler(0f, 0f, angle);
+
+    // Arma segue a posição e rotação do firePoint
+    if (gunTransform != null)
+    {
+      gunTransform.position = firePoint.position;
+      gunTransform.rotation = firePoint.rotation;
+    }
   }
 
   private void Shoot()
@@ -128,4 +155,21 @@ public class PlayerShooter : MonoBehaviour
     laserLine.SetPosition(0, start);
     laserLine.SetPosition(1, end);
   }
+
+  private void HandleFlipByMouse()
+  {
+    Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+    bool pointingLeft = mouseWorldPos.x < transform.position.x;
+
+    float gunScaley = Mathf.Abs(gunTransform.localScale.y);
+
+    print(pointingLeft);
+    if (gunTransform != null)
+    {
+      gunTransform.localScale = new Vector3(
+          pointingLeft ? -gunScaley : gunScaley,
+         pointingLeft ? -gunScaley : gunScaley, gunTransform.localScale.z);
+    }
+  }
+
 }
