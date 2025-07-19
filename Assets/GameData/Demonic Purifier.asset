@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f4359b1ad87134c9a1a9b575ddaf0e, type: 3}
+  m_Name: Demonic Purifier
+  m_EditorClassIdentifier: 
+  upgradeName: Demonic Purifier
+  description: Your shots become a cleansing torrent, undoing the very essence of
+    the torment that holds spirits captive. Significantly increases fire rate and
+    slightly boosts max ammo.
+  fireRateModifier: -0.4
+  bulletSpeedModifier: 4
+  damageModifier: 0.5
+  maxAmmoModifier: 28
+  reloadTimeModifier: -0.05
+  pelletCountModifier: 0
+  dotChanceModifier: 0
+  dotDamageModifier: 0
+  dotDurationModifier: 0
+  markChanceModifier: 0
+  markDurationModifier: 0
+  markDamageBonusModifier: 0

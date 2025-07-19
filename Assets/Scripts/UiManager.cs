@@ -21,7 +21,7 @@ public class UiManager : MonoBehaviour
     }
 
     Instance = this;
-    DontDestroyOnLoad(gameObject); // opcional se for trocar de cenas
+    // DontDestroyOnLoad(gameObject); // opcional se for trocar de cenas
   }
 
   private void Update()

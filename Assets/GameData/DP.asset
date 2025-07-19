@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f4359b1ad87134c9a1a9b575ddaf0e, type: 3}
+  m_Name: DP
+  m_EditorClassIdentifier: 
+  upgradeName: "Purificador Demon\xEDaco"
+  description: "Seus disparos se tornam um torrente purificadora, desfazendo a pr\xF3pria
+    ess\xEAncia do tormento que aprisiona os esp\xEDritos. Aumenta significativamente
+    a cad\xEAncia de tiro e levemente a muni\xE7\xE3o m\xE1xima."
+  fireRateModifier: -0.4
+  bulletSpeedModifier: 4
+  damageModifier: 0.5
+  maxAmmoModifier: 28
+  reloadTimeModifier: -0.05
+  pelletCountModifier: 0
+  dotChanceModifier: 0
+  dotDamageModifier: 0
+  dotDurationModifier: 0
+  markChanceModifier: 0
+  markDurationModifier: 0
+  markDamageBonusModifier: 0

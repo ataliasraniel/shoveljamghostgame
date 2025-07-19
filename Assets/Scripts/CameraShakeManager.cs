@@ -26,7 +26,7 @@ public class CameraShakeManager : MonoBehaviour
   {
     if (impulseSource != null)
     {
-      Debug.Log("Shaking by " + force);
+
       impulseSource.GenerateImpulseWithForce(force);
     }
   }
