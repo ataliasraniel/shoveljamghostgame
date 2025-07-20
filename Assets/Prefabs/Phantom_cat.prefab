@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4545318387522927450}
   - component: {fileID: 9052179754329843713}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,11 +93,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3907203505692942346}
-  - component: {fileID: 9067386633590823979}
   - component: {fileID: 6336340328695899250}
-  m_Layer: 0
+  - component: {fileID: 1670557909186453353}
+  - component: {fileID: 6492544076021969830}
+  m_Layer: 7
   m_Name: Phantom_cat
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,34 +120,6 @@ Transform:
   - {fileID: 4545318387522927450}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9067386633590823979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7039195556991752642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cad8f95062a49b42a7fbb3772c54f06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  enableCollisionDamage: 1
-  damageLayers:
-    serializedVersion: 2
-    m_Bits: 128
-  collisionDamageAmount: 10
-  invulnerabilityDuration: 0.5
-  sprite: {fileID: 0}
-  deathEffectPrefabs:
-  - {fileID: 3959787754841441185, guid: 469760658a78dbc4bab657cb296bb1c9, type: 3}
-  deathSpawnPoint: {fileID: 3907203505692942346}
-  destroyOnDeath: 1
-  destroyDelay: 0
-  scoreValue: 100
-  upgradeChestPrefab: {fileID: 5878661032190554697, guid: 1db0176eca266114a98eaba54aede758, type: 3}
 --- !u!61 &6336340328695899250
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -193,6 +166,81 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1670557909186453353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7039195556991752642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc1294d1ada011946b741d66c99faad1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 400
+  currentHealth: 0
+  enableCollisionDamage: 1
+  damageLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  collisionDamageAmount: 10
+  invulnerabilityDuration: 0.5
+  sprite: {fileID: 0}
+  deathEffectPrefabs: []
+  deathSpawnPoint: {fileID: 0}
+  destroyOnDeath: 1
+  destroyDelay: 0
+  scoreValue: 100
+  upgradeChestPrefab: {fileID: 5878661032190554697, guid: 1db0176eca266114a98eaba54aede758, type: 3}
+  phases:
+  - phaseName: Laser
+    healthThreshold: 350
+    availableBehaviorTypes: 01000000
+    attackPatterns:
+    - {fileID: 11400000, guid: 863282529dce43744a0b973b2defe7fc, type: 2}
+    movementPatterns: []
+    chaseAndAttackBehavior: {fileID: 11400000, guid: 0a2a90b6814ddb048b1ff64a6a0990a9, type: 2}
+    teleportAndAttackBehavior: {fileID: 11400000, guid: 2c7c87575144e6a4aa50b6d0e5dc0c39, type: 2}
+    evadeBehavior: {fileID: 11400000, guid: b113f47842fb7b84bb8ed6726f1d6fbb, type: 2}
+  - phaseName: Furious
+    healthThreshold: 400
+    availableBehaviorTypes: 00000000
+    attackPatterns:
+    - {fileID: 11400000, guid: f0a3024502146a34a9f7293248a6d9e7, type: 2}
+    movementPatterns: []
+    chaseAndAttackBehavior: {fileID: 11400000, guid: 0a2a90b6814ddb048b1ff64a6a0990a9, type: 2}
+    teleportAndAttackBehavior: {fileID: 11400000, guid: 2c7c87575144e6a4aa50b6d0e5dc0c39, type: 2}
+    evadeBehavior: {fileID: 11400000, guid: b113f47842fb7b84bb8ed6726f1d6fbb, type: 2}
+  bossMoveSpeed: 6
+  behaviorSwitchDelay: 0.1
+--- !u!50 &6492544076021969830
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7039195556991752642}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8088694800271107127
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 318517588189014980}
   - component: {fileID: 7243741839249089705}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

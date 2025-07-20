@@ -51,15 +51,15 @@ public class DialogManager : MonoBehaviour
   private void Awake()
   {
     // Implementação do Singleton
-    // if (Instance != null && Instance != this)
-    // {
-    //   Destroy(gameObject);
-    // }
-    // else
-    // {
-    //   Instance = this;
-    //   DontDestroyOnLoad(gameObject);
-    // }
+    if (Instance != null && Instance != this)
+    {
+      Destroy(gameObject);
+    }
+    else
+    {
+      Instance = this;
+      DontDestroyOnLoad(gameObject);
+    }
 
     dialogueMap = new Dictionary<string, DialogueSequence>();
     if (dialogueDatabase != null && dialogueDatabase.dialogueSequences != null)

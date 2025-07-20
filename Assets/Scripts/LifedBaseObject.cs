@@ -5,9 +5,9 @@ public class LifedBaseGameObject : MonoBehaviour
 {
   [Header("Configurações de Vida")]
   [Tooltip("Vida máxima do objeto.")]
-  [SerializeField] private float maxHealth = 100f;
+  [SerializeField] protected float maxHealth = 100f;
   [Tooltip("Vida atual do objeto.")]
-  [SerializeField] private float currentHealth;
+  [SerializeField] protected float currentHealth;
 
   [Header("Configurações de Dano por Colisão")]
   [Tooltip("Habilita ou desabilita o recebimento de dano por colisão.")]
@@ -84,7 +84,6 @@ public class LifedBaseGameObject : MonoBehaviour
     }
 
     currentHealth -= amount;
-    Debug.Log($"{gameObject.name} levou {amount} de dano. Vida restante: {currentHealth}");
 
     // Ativa a invulnerabilidade
     isInvulnerable = true;
