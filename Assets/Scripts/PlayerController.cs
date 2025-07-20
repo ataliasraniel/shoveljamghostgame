@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
   {
     // Se a tecla de dash (ex: Shift Esquerdo) for pressionada,
     // NÃO estiver no chão, NÃO estiver já em dash, e o cooldown permitindo
-    if (Input.GetKeyDown(KeyCode.LeftShift) && !isGrounded && !isAirDashing && Time.time >= nextAirDashTime)
+    if (Input.GetButtonDown("Jump") && !isGrounded && !isAirDashing && Time.time >= nextAirDashTime)
     {
       // Determina a direção do dash. Pode ser a direção do mouse, ou a direção do movimento atual.
       // Para simplicidade, vamos usar a direção do mouse para um dash de "esquiva/ataque".
